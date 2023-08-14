@@ -20,7 +20,7 @@
           </li>
         </ul>
         
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" routerLink="/home"  >
           Mi Tienda
         </a>
         
@@ -28,14 +28,13 @@
           <input type="text" class="form-control search-input" placeholder="Buscar productos">
           <button class="btn btn-outline-light search-button">Buscar</button>
         </div>
-        
         <div class="navbar-icons">
-            <a href="/login" class="navbar-icon">
-                <i class="fas fa-user"></i> <!-- Icono de usuario -->
+            <a   class="navbar-icon" routerLink="/user">
+                <i class="fas fa-user" routerLink="/user"></i> <!-- Icono de usuario -->
               </a>
               
-          <a href="#" class="navbar-icon">
-            <i class="fas fa-shopping-cart"></i> <!-- Icono de carrito de compras -->
+          <a  class="navbar-icon" routerLink="/carrito">
+            <i class="fas fa-shopping-cart" routerLink="/carrito"></i> <!-- Icono de carrito de compras -->
           </a>
         </div>
       </div>

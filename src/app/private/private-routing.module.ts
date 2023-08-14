@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CarritoComponent } from './pages/carrito/carrito.component';
 import { DescripcionProductoComponent } from './pages/descripcion-producto/descripcion-producto.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { UserComponent } from './pages/user/user.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
         path: 'admin',
       component: AdminComponent
 
+      },
+      {
+        path:'user',
+        component:UserComponent
       }
 
 

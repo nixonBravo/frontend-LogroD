@@ -9,10 +9,11 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { AllProductComponent } from './pages/home/components/all-product/all-product.component';
 import { ProductsComponent } from './pages/home/components/products/products.component';
 import { CoreModule } from '../core/core.module';
+import { UserComponent } from './pages/user/user.component';
 
 
 @NgModule({
-  declarations: [PrivateComponent, HomeComponent, CarritoComponent, DescripcionProductoComponent, AdminComponent, AllProductComponent, ProductsComponent],
+  declarations: [PrivateComponent, HomeComponent, CarritoComponent, DescripcionProductoComponent, AdminComponent, AllProductComponent, ProductsComponent, UserComponent],
   imports: [
     PrivateRoutingModule,
     CommonModule,CoreModule
