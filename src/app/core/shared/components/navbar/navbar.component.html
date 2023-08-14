@@ -6,12 +6,12 @@
       
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <li class="nav-item dropdown"  (click)="toggleNavbar()"> 
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <!-- Icono de tres rayas de Bootstrap -->
               <span class="navbar-toggler-icon"></span>
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" *ngIf="navbarOpen">
               <!-- Aquí puedes agregar las opciones de categorías -->
               <a class="dropdown-item" href="#">Categoría 1</a>
               <a class="dropdown-item" href="#">Categoría 2</a>

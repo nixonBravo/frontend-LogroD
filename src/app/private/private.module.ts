@@ -8,13 +8,14 @@ import { DescripcionProductoComponent } from './pages/descripcion-producto/descr
 import { AdminComponent } from './pages/admin/admin.component';
 import { AllProductComponent } from './pages/home/components/all-product/all-product.component';
 import { ProductsComponent } from './pages/home/components/products/products.component';
+import { CoreModule } from '../core/core.module';
 
 
 @NgModule({
   declarations: [PrivateComponent, HomeComponent, CarritoComponent, DescripcionProductoComponent, AdminComponent, AllProductComponent, ProductsComponent],
   imports: [
     PrivateRoutingModule,
-    CommonModule
+    CommonModule,CoreModule
   ]
 })
 export class PrivateModule { }
