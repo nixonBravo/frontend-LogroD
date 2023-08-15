@@ -6,6 +6,7 @@ import { CarritoComponent } from './pages/carrito/carrito.component';
 import { DescripcionProductoComponent } from './pages/descripcion-producto/descripcion-producto.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { UserComponent } from './pages/user/user.component';
+import { CrearProductoComponent } from './pages/crear-producto/crear-producto.component';
 
 const routes: Routes = [
   {
@@ -39,7 +40,11 @@ const routes: Routes = [
       {
         path:'user',
         component:UserComponent
-      }
+      },
+      {
+        path:'crear-producto',
+        component:CrearProductoComponent
+      },
 
 
     ]

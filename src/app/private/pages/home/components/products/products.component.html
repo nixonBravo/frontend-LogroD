@@ -1,1 +1,13 @@
-<p>soy un producto</p>
+<ng-container *ngIf="producto" >
+  <div class="card" style="width: 18rem;" >
+    <img class="card-img-top" src="https://www.fybeca.com/dw/image/v2/BDPM_PRD/on/demandware.static/-/Sites-masterCatalog_FybecaEcuador/default/dw28c82d20/images/large/100177142-GASEOSA-COCA-COLA-355-ML-LATA.jpg?sw=1000&sh=1000" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Producto: {{ producto.producto  |titlecase}}</h5>
+      <p class="card-text">Descripcion {{ producto.descripcion |titlecase }} </p>
+      <p class="card-text">En stock {{ producto.stock }} </p>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-info">Agregar al carrito</button>
+    </div>
+  </div>
+</ng-container>

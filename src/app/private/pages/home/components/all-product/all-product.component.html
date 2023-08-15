@@ -1,6 +1,8 @@
-<h1>este es cuadro verde</h1>
-<app-products/>
-<app-products/>
-<app-products/>
-<app-products/>
+<div class="w-75 mx-auto  mt-5">
+  <div class="row gap-5">
+    <app-products class="col-md-3" [producto]="producto" *ngFor="let producto of productos" />
+    <app-products class="col-md-3" [producto]="producto" *ngFor="let producto of productos" />
+    <app-products class="col-md-3" [producto]="producto" *ngFor="let producto of productos" />
+</div>
+</div>
 

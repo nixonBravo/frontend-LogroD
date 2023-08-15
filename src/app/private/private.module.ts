@@ -10,10 +10,11 @@ import { AllProductComponent } from './pages/home/components/all-product/all-pro
 import { ProductsComponent } from './pages/home/components/products/products.component';
 import { CoreModule } from '../core/core.module';
 import { UserComponent } from './pages/user/user.component';
+import { CrearProductoComponent } from './pages/crear-producto/crear-producto.component';
 
 
 @NgModule({
-  declarations: [PrivateComponent, HomeComponent, CarritoComponent, DescripcionProductoComponent, AdminComponent, AllProductComponent, ProductsComponent, UserComponent],
+  declarations: [PrivateComponent, HomeComponent, CarritoComponent, DescripcionProductoComponent, AdminComponent, AllProductComponent, ProductsComponent, UserComponent, CrearProductoComponent],
   imports: [
     PrivateRoutingModule,
     CommonModule,CoreModule
