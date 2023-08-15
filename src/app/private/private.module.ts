@@ -11,13 +11,17 @@ import { ProductsComponent } from './pages/home/components/products/products.com
 import { CoreModule } from '../core/core.module';
 import { UserComponent } from './pages/user/user.component';
 import { CrearProductoComponent } from './pages/crear-producto/crear-producto.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
   declarations: [PrivateComponent, HomeComponent, CarritoComponent, DescripcionProductoComponent, AdminComponent, AllProductComponent, ProductsComponent, UserComponent, CrearProductoComponent],
   imports: [
     PrivateRoutingModule,
-    CommonModule,CoreModule
+    CommonModule,
+    CoreModule,
+    ReactiveFormsModule
   ]
 })
 export class PrivateModule { }

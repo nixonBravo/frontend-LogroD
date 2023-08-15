@@ -1,1 +1,50 @@
-<p>crear-producto works!</p>
+<body class="d-flex justify-content-center align-items-center vh-100">
+  <div
+    class="bg-white w-50 p-5 rounded-5 text-secondary shadow"
+    style="width: 25rem"
+  >
+    <div class="text-center fs-1 fw-bold">Añadir un Producto</div>
+    <form [formGroup]="productoForm">
+      <!-- Categoria -->
+      <div class="form-floating mt-4">
+        <select class="form-select bg-light" id="floatingSelect" aria-label="Floating label select example">
+          <!-- <option selected></option> -->
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+        <label for="floatingSelect">Categoria del Producto</label>
+      </div>
+      <!-- Producto -->
+      <div class="form-floating mt-1">
+        <input type="text" class="form-control bg-light" id="floatingInput" placeholder="Ingrese el nombre del producto">
+        <label for="floatingInput">Nombre Producto</label>
+      </div>
+      <!-- DescripcionProducto -->
+      <div class="form-floating mt-1">
+        <textarea class="form-control bg-light " placeholder="Descripcion del producto" id="floatingTextarea"></textarea>
+        <label for="floatingTextarea">Descripcion del producto</label>
+      </div>
+      <!-- Precio -->
+      <div class="form-floating mt-1">
+        <input type="number" step="0.01" class="form-control bg-light" id="floatingInput" placeholder="Precio">
+        <label for="floatingInput">Precio</label>
+      </div>
+      <!-- Stock -->
+      <div class="form-floating mt-1">
+        <input type="number" class="form-control bg-light" id="floatingInput" placeholder="Stock">
+        <label for="floatingInput">Stock</label>
+      </div>
+      <div class="input-group mt-1">
+        <!-- <input type="text" class="form-control bg-light" placeholder="Imagen" /> -->
+        <!-- <label for="formFile" class="form-label"
+          >Default file input example</label
+        > -->
+        <input class="form-control" type="file" id="formFile" />
+      </div>
+      <div class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm">
+        Subir Producto
+      </div>
+    </form>
+  </div>
+</body>
