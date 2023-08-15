@@ -1,4 +1,69 @@
-<div class="login-container">
+<body class="d-flex justify-content-center align-items-center vh-100">
+  <div
+    class="bg-white p-5 rounded-5 text-secondary shadow"
+    style="width: 25rem"
+  >
+    <div class="text-center fs-1 fw-bold">Login</div>
+
+    <form [formGroup]="FormLogin" (submit)="login(FormLogin.value)">
+      <div class="form-group mt-4 bg-light">
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          placeholder="Ingresa tu correo electrónico"
+          formControlName="email"
+        />
+        <div
+          *ngIf="
+            FormLogin.get('email')?.invalid && FormLogin.get('email')?.touched
+          "
+        >
+          <span
+            *ngIf="FormLogin.get('email')?.hasError('required')"
+            style="color: #f39c12"
+          >
+            Correo Electrónico Requerido.</span
+          >
+        </div>
+        <div
+          *ngIf="FormLogin.get('email')?.hasError('email')"
+          style="color: #f39c12"
+        >
+          Se requiere un correo valido.
+        </div>
+      </div>
+      <div class="form-group mt-1 bg-light">
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          placeholder="Ingresa tu contraseña"
+          formControlName="password"
+
+        />
+        <div  *ngIf="FormLogin.get('password')?.invalid && FormLogin.get('password')?.touched">
+          <span *ngIf="FormLogin.get('password')?.hasError('required')" style="color: #F39C12;"> Contraseña Requerido.</span>
+       </div>
+        <div  *ngIf="FormLogin.get('password')?.invalid && FormLogin.get('password')?.touched">
+          <span *ngIf="FormLogin.get('password')?.hasError('minlength')" style="color: #F39C12;"> Minimo 8 caracteres</span>
+       </div>
+        <div  *ngIf="FormLogin.get('password')?.invalid && FormLogin.get('password')?.touched">
+          <span *ngIf="FormLogin.get('password')?.hasError('maxlength')" style="color: #F39C12;"> Maximo 16 caracteres</span>
+       </div>
+      </div>
+    <button [disabled]="FormLogin.invalid" type="submit"  class=" mt-4 fw-semibold btn btn-primary">Iniciar sesión</button>
+    <div class="d-flex gap-1 justify-content-center mt-1">
+      <div>¿No tienes una cuenta?</div>
+      <a routerLink="/register" class="text-decoration-none text-info fw-semibold"
+        >Crear cuenta</a>
+    </div>
+  </form>
+  </div>
+</body>
+
+
+<!-- <div class="login-container">
   <div class="login-form">
     <h2>Iniciar Sesión</h2>
     <form [formGroup]="FormLogin" (submit)="login(FormLogin.value)">
@@ -56,4 +121,4 @@
       </p>
     </form>
   </div>
-</div>
+</div> -->

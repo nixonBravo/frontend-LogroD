@@ -1,4 +1,150 @@
-<div class="register-container">
+<body class="d-flex justify-content-center align-items-center vh-100">
+  <div
+    class="bg-white p-5 rounded-5 text-secondary shadow"
+    style="width: 25rem"
+  >
+    <div class="text-center fs-1 fw-bold">Login</div>
+
+    <form [formGroup]="formRegister" (submit)="register(formRegister.value)">
+      <div class="form-group mt-4 bg-light">
+        <input
+          type="text"
+          formControlName="cedula"
+          id="cedula"
+          class="form-control"
+          placeholder="Ingresa tu cédula"
+        />
+
+          <div *ngIf="formRegister.get('cedula')?.hasError('required')">
+            <p class="error-message">Campo requerido</p>
+          </div>
+
+          <div
+            class="error-message"
+            *ngIf="formRegister.get('cedula')?.hasError('pattern')"
+          >
+            Solo numeros
+          </div>
+          <div
+            class="error-message"
+            *ngIf="formRegister.get('cedula')?.hasError('maxlength')"
+          >
+            Se aceptan 10 valores como maximo
+          </div>
+          <div
+            class="error-message"
+            *ngIf="formRegister.get('cedula')?.hasError('minlength')"
+          >
+            Se aceptan 10 valores como minimo
+          </div>
+        </div>
+
+        <div class="form-group mt-1 bg-light">
+          <input
+            type="text"
+            formControlName="nombre"
+            id="nombre"
+            class="form-control"
+            placeholder="Ingresa tu nombre"
+          />
+            <div
+              class="error-message"
+              *ngIf="formRegister.get('nombre')?.hasError('required')"
+            >
+              Campo requerido
+            </div>
+            <div
+              class="error-message"
+              *ngIf="formRegister.get('nombre')?.hasError('minlength')"
+            >
+              Minimo 3 valores
+            </div>
+          </div>
+
+          <div class="form-group mt-1 bg-light">
+            <input
+              formControlName="apellido"
+              type="text"
+              id="apellido"
+              class="form-control"
+              placeholder="Ingresa tu apellido"
+            />
+
+              <div
+                class="error-message"
+                *ngIf="formRegister.get('apellido')?.hasError('required')"
+              >
+                Campo requerido
+              </div>
+              <div
+                class="error-message"
+                *ngIf="formRegister.get('apellido')?.hasError('minlength')"
+              >
+                Minimo 3 valores
+              </div>
+            </div>
+      <!-- Email -->
+      <div class="form-group mt-1 bg-light">
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          placeholder="Ingresa tu correo electrónico"
+          formControlName="email"
+        />
+        <div
+          class="error-message"
+          *ngIf="formRegister.get('email')?.hasError('required')"
+        >
+          Campo requerido
+        </div>
+        <div
+          class="error-message"
+          *ngIf="formRegister.get('email')?.hasError('email')"
+        >
+          Debe ser correo
+        </div>
+      </div>
+      <div class="form-group mt-1 bg-light">
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          placeholder="Ingresa tu contraseña"
+          formControlName="password"
+
+        />
+        <div
+          class="error-message"
+          *ngIf="formRegister.get('password')?.hasError('required')"
+        >
+          Campo requerido
+        </div>
+        <div
+          class="error-message"
+          *ngIf="formRegister.get('password')?.hasError('minlength')"
+        >
+          Debe ser minimo 8 caracteres
+        </div>
+        <div
+        class="error-message"
+        *ngIf="formRegister.get('password')?.hasError('maxlength')"
+      >
+        Debe ser máximo 15 caracteres
+      </div>
+      </div>
+    <button  type="submit"  class=" mt-4 fw-semibold btn btn-primary">Registrarse</button>
+    <div class="d-flex gap-1 justify-content-center mt-1">
+      <div>¿Tienes una cuenta?</div>
+      <a routerLink="/login" class="text-decoration-none text-info fw-semibold"
+        >Iniciar Sesión</a>
+    </div>
+  </form>
+  </div>
+</body>
+
+
+<!-- <div class="register-container">
   <h2 class="h2">Registro de Usuario</h2>
   <form [formGroup]="formRegister" (submit)="register(formRegister.value)">
     <div class="form-group">
@@ -137,4 +283,4 @@
     </p>
   </form>
   {{formRegister|json}}
-</div>
+</div> -->

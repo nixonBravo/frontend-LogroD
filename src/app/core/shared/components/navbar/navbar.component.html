@@ -1,47 +1,69 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span> <!-- Ícono de tres rayas de Bootstrap -->
-          </button>
+  <div class="container">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+      <!-- Ícono de tres rayas de Bootstrap -->
+    </button>
 
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown"  (click)="toggleNavbar()">
-            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <!-- Icono de tres rayas de Bootstrap -->
-              <span class="navbar-toggler-icon"></span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" *ngIf="navbarOpen">
-              <!-- Aquí puedes agregar las opciones de categorías -->
-              <a class="dropdown-item" href="#">Categoría 1</a>
-              <a class="dropdown-item" href="#">Categoría 2</a>
-              <a class="dropdown-item" href="#">Categoría 3</a>
-            </div>
-          </li>
-        </ul>
-
-
-        <a class="navbar-brand" routerLink="/home"  >
-          Mi Tienda
-        </a>
-
-        <div class="navbar-search">
-          <input type="text" class="form-control search-input" placeholder="Buscar productos">
-          <button class="btn btn-outline-light search-button">Buscar</button>
-        </div>
-        <div class="navbar-icons">
-            <a   class="navbar-icon" routerLink="/user" >
-                <i class="fas fa-user" routerLink="/user"></i> <!-- Icono de usuario -->
-              </a>
-            <a   class="navbar-icon" routerLink="/crear-producto" >
-                <i class="fa-solid fa-plus" routerLink="/crear-producto"></i> <!-- Icono de usuario -->
-              </a>
-
-          <a  class="navbar-icon" routerLink="/carrito">
-            <i class="fas fa-shopping-cart" routerLink="/carrito"></i> <!-- Icono de carrito de compras -->
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown" (click)="toggleNavbar()">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <!-- Icono de tres rayas de Bootstrap -->
+            <span class="navbar-toggler-icon"></span>
           </a>
-        </div>
+          <div
+            class="dropdown-menu"
+            aria-labelledby="navbarDropdownMenuLink"
+            *ngIf="navbarOpen"
+          >
+            <!-- Aquí puedes agregar las opciones de categorías -->
+            <a class="dropdown-item" href="#">Categoría 1</a>
+            <a class="dropdown-item" href="#">Categoría 2</a>
+            <a class="dropdown-item" href="#">Categoría 3</a>
+          </div>
+        </li>
+      </ul>
 
+      <a class="navbar-brand" routerLink="/home"> Mi Tienda </a>
+
+      <div class="navbar-search">
+        <input
+          type="text"
+          class="form-control search-input"
+          placeholder="Buscar productos"
+        />
+        <button class="btn btn-outline-light search-button">Buscar</button>
+      </div>
+      <div class="navbar-icons">
+        <a class="navbar-icon" routerLink="/user">
+          <i class="fas fa-user" routerLink="/user"></i>
+          <!-- Icono de usuario -->
+        </a>
+        <a class="navbar-icon" routerLink="/crear-producto">
+          <i class="fa-solid fa-plus" routerLink="/crear-producto"></i>
+          <!-- Icono de add Producto -->
+        </a>
+        <a class="navbar-icon" routerLink="/carrito">
+          <i class="fas fa-shopping-cart" routerLink="/carrito"></i>
+          <!-- Icono de carrito de compras -->
+        </a>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
