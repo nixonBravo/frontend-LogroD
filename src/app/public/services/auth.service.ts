@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { config } from 'src/config/config';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn:'root'
 })
 export class AuthService {
   api=config.ApiUrl;

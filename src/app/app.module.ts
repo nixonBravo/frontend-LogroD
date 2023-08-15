@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptorInterceptor } from './core/shared/interceptores/auth.interceptor';
 import { SpinnerInterceptor } from './core/shared/interceptores/spinners.interceptor';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { CoreModule } from './core/core.module';
 
 
 
@@ -22,7 +23,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
       positionClass:'toast-bottom-right'
     }),
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,HttpClientModule,CoreModule
   ],
   providers: [
     {

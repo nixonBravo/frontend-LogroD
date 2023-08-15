@@ -1,1 +1,10 @@
 <p>user works!</p>
+<button (click)="logout()" class="btn btn-danger">logout</button>
+
+
+<div *ngIf="user">
+
+  <h1>hola <b>{{user.nombre|titlecase}} {{user.apellido|titlecase}}</b> </h1>
+  <h1>su correo <b>{{user.email}}</b> </h1>
+  <h1>su rol <b>{{user.rol}} </b> </h1>
+</div>

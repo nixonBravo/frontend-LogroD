@@ -1,17 +1,59 @@
 <div class="login-container">
-    <div class="login-form">
-      <h2>Iniciar Sesión</h2>
-      <form>
-        <div class="form-group">
-          <label for="email">Correo electrónico</label>
-          <input type="email" id="email" class="form-control" placeholder="Ingresa tu correo electrónico">
+  <div class="login-form">
+    <h2>Iniciar Sesión</h2>
+    <form [formGroup]="FormLogin" (submit)="login(FormLogin.value)">
+      <div class="form-group">
+        <label for="email">Correo electrónico</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          placeholder="Ingresa tu correo electrónico"
+          formControlName="email"
+        />
+        <div
+          *ngIf="
+            FormLogin.get('email')?.invalid && FormLogin.get('email')?.touched
+          "
+        >
+          <span
+            *ngIf="FormLogin.get('email')?.hasError('required')"
+            style="color: #f39c12"
+          >
+            Correo Electrónico Requerido.</span
+          >
         </div>
-        <div class="form-group">
-          <label for="password">Contraseña</label>
-          <input type="password" id="password" class="form-control" placeholder="Ingresa tu contraseña">
+        <div
+          *ngIf="FormLogin.get('email')?.hasError('email')"
+          style="color: #f39c12"
+        >
+          Se requiere un correo valido.
         </div>
-        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-        <p class="signup-link">¿No tienes una cuenta? <a routerLink="/register">Crear cuenta</a></p>
-      </form>
-    </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          placeholder="Ingresa tu contraseña"
+          formControlName="password"
+
+        />
+        <div  *ngIf="FormLogin.get('password')?.invalid && FormLogin.get('password')?.touched">
+          <span *ngIf="FormLogin.get('password')?.hasError('required')" style="color: #F39C12;"> Contraseña Requerido.</span>
+       </div>
+        <div  *ngIf="FormLogin.get('password')?.invalid && FormLogin.get('password')?.touched">
+          <span *ngIf="FormLogin.get('password')?.hasError('minlength')" style="color: #F39C12;"> Minimo 8 caracteres</span>
+       </div>
+        <div  *ngIf="FormLogin.get('password')?.invalid && FormLogin.get('password')?.touched">
+          <span *ngIf="FormLogin.get('password')?.hasError('maxlength')" style="color: #F39C12;"> Maximo 16 caracteres</span>
+       </div>
+      </div>
+      <button [disabled]="FormLogin.invalid" type="submit" class="btn btn-primary">Iniciar sesión</button>
+      <p class="signup-link">
+        ¿No tienes una cuenta? <a routerLink="/register">Crear cuenta</a>
+      </p>
+    </form>
   </div>
+</div>

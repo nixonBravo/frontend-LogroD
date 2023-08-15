@@ -1,28 +1,140 @@
 <div class="register-container">
-    <h2 class="h2">Registro de Usuario</h2>
-    <form>
-      <div class="form-group">
-        <label for="cedula">Cédula</label>
-        <input type="text" id="cedula" class="form-control" placeholder="Ingresa tu cédula">
-      </div>
-      <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" class="form-control" placeholder="Ingresa tu nombre">
-      </div>
-      <div class="form-group">
-        <label for="apellido">Apellido</label>
-        <input type="text" id="apellido" class="form-control" placeholder="Ingresa tu apellido">
-      </div>
-      <div class="form-group">
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="email" class="form-control" placeholder="Ingresa tu correo electrónico">
-      </div>
-      <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" class="form-control" placeholder="Ingresa tu contraseña">
-      </div>
-      <button type="submit" class="btn btn-primary">Registrarse</button>
-      <p class="signup-link">¿No tienes una cuenta? <a routerLink="/login">ya tienes cuenta?</a></p>
+  <h2 class="h2">Registro de Usuario</h2>
+  <form [formGroup]="formRegister" (submit)="register(formRegister.value)">
+    <div class="form-group">
+      <label for="cedula">Cédula</label>
+      <input
+        type="text"
+        formControlName="cedula"
+        id="cedula"
+        class="form-control"
+        placeholder="Ingresa tu cédula"
+      />
 
-    </form>
-  </div>
+        <div *ngIf="formRegister.get('cedula')?.hasError('required')">
+          <p class="error-message">Campo requerido</p>
+        </div>
+
+        <div
+          class="error-message"
+          *ngIf="formRegister.get('cedula')?.hasError('pattern')"
+        >
+          Solo numeros
+        </div>
+        <div
+          class="error-message"
+          *ngIf="formRegister.get('cedula')?.hasError('maxlength')"
+        >
+          Se aceptan 10 valores como maximo
+        </div>
+        <div
+          class="error-message"
+          *ngIf="formRegister.get('cedula')?.hasError('minlength')"
+        >
+          Se aceptan 10 valores como minimo
+        </div>
+      </div>
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input
+        type="text"
+        formControlName="nombre"
+        id="nombre"
+        class="form-control"
+        placeholder="Ingresa tu nombre"
+      />
+        <div
+          class="error-message"
+          *ngIf="formRegister.get('nombre')?.hasError('required')"
+        >
+          Campo requerido
+        </div>
+        <div
+          class="error-message"
+          *ngIf="formRegister.get('nombre')?.hasError('minlength')"
+        >
+          Minimo 3 valores
+        </div>
+      </div>
+    <div class="form-group">
+      <label for="apellido">Apellido</label>
+      <input
+        formControlName="apellido"
+        type="text"
+        id="apellido"
+        class="form-control"
+        placeholder="Ingresa tu apellido"
+      />
+
+        <div
+          class="error-message"
+          *ngIf="formRegister.get('apellido')?.hasError('required')"
+        >
+          Campo requerido
+        </div>
+        <div
+          class="error-message"
+          *ngIf="formRegister.get('apellido')?.hasError('minlength')"
+        >
+          Minimo 3 valores
+        </div>
+      </div>
+    <div class="form-group">
+      <label for="email">Correo electrónico</label>
+      <input
+        formControlName="email"
+        type="email"
+        id="email"
+        class="form-control"
+        placeholder="Ingresa tu correo electrónico"
+      />
+
+        <div
+          class="error-message"
+          *ngIf="formRegister.get('email')?.hasError('required')"
+        >
+          Campo requerido
+        </div>
+        <div
+          class="error-message"
+          *ngIf="formRegister.get('email')?.hasError('email')"
+        >
+          Debe ser correo
+        </div>
+      </div>
+    <div class="form-group">
+      <label for="password">Contraseña</label>
+      <input
+        formControlName="password"
+        type="password"
+        id="password"
+        class="form-control"
+        placeholder="Ingresa tu contraseña"
+      />
+
+        <div
+          class="error-message"
+          *ngIf="formRegister.get('password')?.hasError('required')"
+        >
+          Campo requerido
+        </div>
+        <div
+          class="error-message"
+          *ngIf="formRegister.get('password')?.hasError('minlength')"
+        >
+          Debe ser minimo 8 caracteres
+        </div>
+      </div>
+      <div
+        class="error-message"
+        *ngIf="formRegister.get('password')?.hasError('maxlength')"
+      >
+        Debe ser máximo 15 caracteres
+      </div>
+    <button type="submit" class="btn btn-primary">Registrarse</button>
+    <p class="signup-link">
+      ¿No tienes una cuenta? <a routerLink="/login">ya tienes cuenta?</a>
+    </p>
+  </form>
+  {{formRegister|json}}
+</div>
