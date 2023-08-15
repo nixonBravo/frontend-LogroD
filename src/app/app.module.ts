@@ -8,6 +8,7 @@ import { AuthInterceptorInterceptor } from './core/shared/interceptores/auth.int
 import { SpinnerInterceptor } from './core/shared/interceptores/spinners.interceptor';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
+import { Error203Interceptor } from './core/shared/interceptores/error203.interceptor';
 
 
 
@@ -34,6 +35,11 @@ import { CoreModule } from './core/core.module';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: SpinnerInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Error203Interceptor,
       multi: true,
     },
   ],

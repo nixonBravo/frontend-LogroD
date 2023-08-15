@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
     <button
       class="navbar-toggler"
@@ -10,7 +10,7 @@
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
-      <!-- Ícono de tres rayas de Bootstrap -->
+     
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -24,7 +24,7 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <!-- Icono de tres rayas de Bootstrap -->
+           
             <span class="navbar-toggler-icon"></span>
           </a>
           <div
@@ -32,7 +32,7 @@
             aria-labelledby="navbarDropdownMenuLink"
             *ngIf="navbarOpen"
           >
-            <!-- Aquí puedes agregar las opciones de categorías -->
+           
             <a class="dropdown-item" href="#">Categoría 1</a>
             <a class="dropdown-item" href="#">Categoría 2</a>
             <a class="dropdown-item" href="#">Categoría 3</a>
@@ -53,17 +53,96 @@
       <div class="navbar-icons">
         <a class="navbar-icon" routerLink="/user">
           <i class="fas fa-user" routerLink="/user"></i>
-          <!-- Icono de usuario -->
+         
         </a>
         <a class="navbar-icon" routerLink="/crear-producto">
           <i class="fa-solid fa-plus" routerLink="/crear-producto"></i>
-          <!-- Icono de add Producto -->
+         
         </a>
         <a class="navbar-icon" routerLink="/carrito">
           <i class="fas fa-shopping-cart" routerLink="/carrito"></i>
-          <!-- Icono de carrito de compras -->
+          
         </a>
       </div>
     </div>
   </div>
+</nav> -->
+
+<!-- Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid justify-content-between">
+    <!-- Left elements -->
+    <div class="d-flex">
+      <!-- Brand -->
+      <a class="navbar-brand me-2 mb-1 d-flex align-items-center" [routerLink]="['/carrito']">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+          height="20"
+          alt="MDB Logo"
+          loading="lazy"
+          style="margin-top: 2px;"
+        />
+      </a>
+
+      <!-- Search form -->
+      <form class="input-group w-auto my-auto d-none d-sm-flex">
+        <input
+          autocomplete="off"
+          type="search"
+          class="form-control rounded"
+          placeholder="Search"
+          style="min-width: 125px;"
+        />
+        <span class="input-group-text border-0 d-none d-lg-flex"
+          ><i class="fas fa-search"></i
+        ></span>
+      </form>
+    </div>
+    <!-- Left elements -->
+
+    <!-- Center elements -->
+    <ul class="navbar-nav flex-row d-none d-md-flex">
+      <li class="nav-item me-3 me-lg-1 active">
+        <a class="nav-link" [routerLink]="['/home']"  >
+          <span><i class="fas fa-home fa-lg" [routerLink]="['/home']" ></i></span>
+        </a>
+      </li>
+
+     
+
+
+      <li class="nav-item me-3 me-lg-1">
+        <a class="nav-link" [routerLink]="['/carrito']">
+          <span><i class="fas fa-shopping-bag fa-lg" [routerLink]="['/carrito']"></i></span>
+        </a>
+      </li>
+
+    </ul>
+    <!-- Center elements -->
+
+    <!-- Right elements -->
+    <ul class="navbar-nav flex-row " *ngIf="user">
+      <li class="nav-item me-3 me-lg-1">
+        <a class="nav-link d-sm-flex align-items-sm-center" [routerLink]="['/user']"  >
+          <img
+            src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
+            class="rounded-circle"
+            height="22"
+            alt="Black and White Portrait of a Man"
+            loading="lazy"
+            [routerLink]="['/user']"
+          />
+          <strong class="d-none d-sm-block ms-1" [routerLink]="['/user']" > {{ user.nombre|titlecase }} </strong>
+        </a>
+      </li>
+      <li class="nav-item me-3 me-lg-1">
+        <a class="nav-link" [routerLink]="['/crear-producto']" >
+          <span><i class="fas fa-plus-circle fa-lg" [routerLink]="['/crear-producto']"></i></span>
+        </a>
+      </li>
+      
+    </ul>
+    <!-- Right elements -->
+  </div>
 </nav>
+<!-- Navbar -->
