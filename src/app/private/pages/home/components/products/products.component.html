@@ -7,7 +7,7 @@
       <p class="card-text">En stock {{ producto.stock }} </p>
     </div>
     <div class="card-footer">
-      <a class="info" routerLink="">Mas informacion</a>
+      <a class="info" [routerLink]="['/descripcionProducto/'+producto.id]">Mas informacion</a>
       <button class="btn btn-info" (click)="addCarrito()">
         <i class="fas fa-shopping-cart"></i>
       </button>

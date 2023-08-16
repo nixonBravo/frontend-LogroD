@@ -1,1 +1,36 @@
-<p>descripcion-producto works!</p>
+<div class="d-flex justify-content-center align-items-center vh-100" *ngIf="producto">
+  <div class="card w-75 h-50">
+    <div class="row g-0">
+      <div class="col-md-4 text-center">
+        <img class="img-fluid rounded-start" style="width: 319px" [src]="producto.url" alt="Card image cap">
+      </div>
+      <div class="col-md-8 d-flex flex-row justify-content-center align-items-center">
+        <div class="card-body text-center">
+          <div class="mt-2">
+            <h2>Nombre: {{producto.producto|titlecase}} </h2>
+          </div>
+          <div class="mt-2">
+            <h4>Descripcon: {{producto.descripcion|titlecase}}</h4>
+          </div>
+          <div class="d-flex d-flex justify-content-evenly mt-3">
+            <div>
+              <h5>Stock: {{producto.stock}}</h5>
+            </div>
+            <div>
+              <h5>Precio: {{producto.precio|currency}}</h5>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mt-3 mb-2">
+
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="bg-warning" (click)="addCarrito()">
+                <i class="fas fa-shopping-cart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
