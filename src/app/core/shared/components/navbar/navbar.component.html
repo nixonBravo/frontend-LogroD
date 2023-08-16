@@ -105,6 +105,11 @@
           <span><i class="fas fa-shopping-bag fa-lg" [routerLink]="['/carrito']"></i></span>
         </a>
       </li>
+      <li class="nav-item me-3 me-lg-1" *ngIf="user?.rol==='Admin'">
+        <a class="nav-link" [routerLink]="['/admin/ver']">
+          <span><i class="fa-solid fa-lock" [routerLink]="['/admin/ver']"></i>Admin</span>
+        </a>
+      </li>
 
     </ul>
     <!-- Center elements -->

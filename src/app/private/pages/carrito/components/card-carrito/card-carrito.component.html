@@ -13,8 +13,9 @@
       <div class="card-footer">
         Cantidad <b>{{cantidad}}</b>
         <div class="d-flex">
-          <div class="btn btn-outline-danger" (click)="reducir()">-</div>
-        <div class="btn btn-outline-info" (click)="aumentar()">+</div>
+          <button class="btn btn-outline-danger" (click)="reducir()">-</button>
+        <button class="btn btn-outline-info" (click)="aumentar()">+</button>
+        <button class="btn btn-outline-info" (click)="quitar()">Quitar del carrito</button>
         </div>
       </div>
     </div>

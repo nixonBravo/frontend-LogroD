@@ -34,7 +34,7 @@ const routes: Routes = [
       },
       {
         path: 'admin',
-      component: AdminComponent
+    loadChildren: () =>import('./pages/admin/admin.module').then(m=>m.AdminModule),
 
       },
       {

@@ -28,4 +28,9 @@ export class CardCarritoComponent implements AfterViewInit {
       this.notificacion.success("Incrementado producto",'Proceso Exitoso!');
     })
   }
+  quitar(){
+    this.carritoService.eliminarProducto(this.producto.pivot.carrito_id).subscribe((data)=>{
+      this.notificacion.success("Producto Eliminado",'Proceso Exitoso!');
+    })
+  }
 }
