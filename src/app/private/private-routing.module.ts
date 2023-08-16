@@ -7,6 +7,7 @@ import { DescripcionProductoComponent } from './pages/descripcion-producto/descr
 import { AdminComponent } from './pages/admin/admin.component';
 import { UserComponent } from './pages/user/user.component';
 import { CrearProductoComponent } from './pages/crear-producto/crear-producto.component';
+import { PedidoComponent } from './pages/pedido/pedido.component';
 
 const routes: Routes = [
   {
@@ -44,6 +45,10 @@ const routes: Routes = [
       {
         path:'crear-producto',
         component:CrearProductoComponent
+      },
+      {
+        path:'pedido',
+        component:PedidoComponent
       },
 
 

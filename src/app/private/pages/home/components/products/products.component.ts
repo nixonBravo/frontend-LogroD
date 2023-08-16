@@ -9,8 +9,9 @@ import { CarritosService } from 'src/app/private/services/carritos.service';
 })
 export class ProductsComponent {
   @Input() producto!:any
+  rol:any
   constructor(private carritoService:CarritosService,private notificacion:ToastrService){
-
+    this.rol=localStorage.getItem('rol');
   }
   addCarrito(){
     const body={

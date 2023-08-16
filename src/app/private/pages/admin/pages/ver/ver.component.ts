@@ -24,8 +24,7 @@ export class VerComponent {
     private authService: AuthService,
     private router: Router
   ) {
-    this.authService.userInformation().subscribe((data: any) => {
-      if (data.User.rol === 'Cliente') {
+      if (localStorage.getItem('rol') === 'Cliente') {
         this.toastService.warning(
           'No puedes estar aquii!',
           'Proceso cancelado!'
@@ -33,7 +32,6 @@ export class VerComponent {
 
         this.router.navigate(['/home']);
       }
-    });
 
     this.searchForm = this.fb.group({
       search: ['', Validators.required],

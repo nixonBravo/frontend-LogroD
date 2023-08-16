@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
   constructor(private authService:AuthService,private route:Router,private toastService:ToastrService){
     this.authService.userInformation().subscribe((data)=>{
       this.user=data.User;
+      localStorage.setItem('rol',this.user.rol);
     })
   }
 

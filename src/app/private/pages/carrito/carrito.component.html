@@ -2,12 +2,75 @@
 
 
 <button class="btn btn-outline-danger" (click)="vaciar()"> Vaciar carrito </button>
-<div class="card" *ngIf="productos">
-  <div class="card-header">
-    <h2> Total {{productos.Total}} </h2>
+<ng-container *ngIf="productos">
+  <div class="card" >
+    <div class="card-header">
+      <h2> Total {{productos.Total|currency}} </h2>
+    </div>
+    <div class="card-body">
+      <app-card-carrito [producto]="producto" *ngFor="let producto of productos.Productos" />
+    </div>
   </div>
-  <div class="card-body">
-    <app-card-carrito [producto]="producto" *ngFor="let producto of productos.Productos" />
+  <div class="w-50 mx-auto">
+    <form [formGroup]="productoForm" (submit)="crearPedido(productoForm.value)">
+      <div class="form-floating mt-1">
+        <input formControlName="celular" type="text" class="form-control bg-light" id="floatingInput" placeholder="Celular">
+        <label for="floatingInput">Celular</label>
+        <div
+        *ngIf="
+        productoForm.get('celular')?.invalid && productoForm.get('celular')?.touched
+        "
+      >
+        <span
+          *ngIf="productoForm.get('celular')?.hasError('required')"
+          style="color: #f39c12"
+        >
+          Celular Requerido.</span
+        >
+        <span
+          *ngIf="productoForm.get('celular')?.hasError('pattern')"
+          style="color: #f39c12"
+        >
+          Celular debe contener numeros.</span
+        >
+        <span
+          *ngIf="productoForm.get('celular')?.hasError('maxlength')"
+          style="color: #f39c12"
+        >
+          Celular maximo 10 digitos.</span
+        >
+        <span
+          *ngIf="productoForm.get('celular')?.hasError('minlength')"
+          style="color: #f39c12"
+        >
+          Celular minimo 10 digitos.</span
+        >
+      </div>
+      </div>
+      <div class="form-floating mt-1">
+        <input formControlName="descripcion" type="text" class="form-control bg-light" id="floatingInput" placeholder="Descripcion">
+        <label for="floatingInput">Descripcion</label>
+        <div
+        *ngIf="
+        productoForm.get('descripcion')?.invalid && productoForm.get('descripcion')?.touched
+        "
+      >
+        <span
+          *ngIf="productoForm.get('descripcion')?.hasError('required')"
+          style="color: #f39c12"
+        >
+          Descripcion Requerido.</span
+        >
+      </div>
+      </div>
+
+      <button [disabled]="productoForm.invalid" type="submit" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm">
+        Realizar pedido
+      </button>
+    </form>
   </div>
-</div>
+</ng-container>
+
+
+
 </div>

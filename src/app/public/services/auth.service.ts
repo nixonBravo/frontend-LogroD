@@ -21,6 +21,7 @@ export class AuthService {
     return this.http.get<any>(this.api + 'auth/profile');
   }
   logout() {
+    localStorage.removeItem('rol')
     return this.http.post(this.api + 'auth/logout', {});
   }
 

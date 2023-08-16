@@ -23,15 +23,13 @@ export class CrearComponent implements OnInit {
     private notificacion: ToastrService,
     private authService: AuthService
   ) {
-    this.authService.userInformation().subscribe((data: any) => {
-      if (data.User.rol === 'Cliente') {
-        this.notificacion.warning(
-          'No puedes estar aquii!',
-          'Proceso cancelado!'
-        );
-        this.route.navigate(['/home']);
-      }
-    });
+    if (localStorage.getItem('rol') === 'Cliente') {
+      this.notificacion.warning(
+        'No puedes estar aquii!',
+        'Proceso cancelado!'
+      );
+      this.route.navigate(['/home']);
+    }
     this.categoryService.categorias().subscribe((data: any) => {
       this.categorias = data.Categorias;
     });

@@ -100,8 +100,8 @@
 
 
 
-      <li class="nav-item me-3 me-lg-1">
-        <a class="nav-link" [routerLink]="['/carrito']">
+      <li class="nav-item me-3 me-lg-1"  *ngIf="user?.rol==='Cliente'">
+        <a class="nav-link" [routerLink]="['/carrito']" >
           <span><i class="fas fa-shopping-bag fa-lg" [routerLink]="['/carrito']"></i></span>
         </a>
       </li>

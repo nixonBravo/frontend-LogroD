@@ -9,7 +9,7 @@ import { SpinnerInterceptor } from './core/shared/interceptores/spinners.interce
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { Error203Interceptor } from './core/shared/interceptores/error203.interceptor';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -24,7 +24,7 @@ import { Error203Interceptor } from './core/shared/interceptores/error203.interc
       positionClass:'toast-bottom-right'
     }),
     BrowserModule,
-    AppRoutingModule,HttpClientModule,CoreModule
+    AppRoutingModule,HttpClientModule,CoreModule,BrowserAnimationsModule
   ],
   providers: [
     {
