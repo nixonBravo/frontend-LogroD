@@ -4,47 +4,115 @@
     style="width: 25rem"
   >
     <div class="text-center fs-1 fw-bold">Añadir un Producto</div>
-    <form [formGroup]="productoForm">
+    <form [formGroup]="productoForm" (submit)="productoStore()">
       <!-- Categoria -->
-      <div class="form-floating mt-4">
-        <select class="form-select bg-light" id="floatingSelect" aria-label="Floating label select example">
+      <div class="form-floating mt-4" *ngIf="categorias">
+        <select formControlName="categoria_id" class="form-select bg-light" id="floatingSelect" aria-label="Floating label select example">
           <!-- <option selected></option> -->
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option [value]="categoria.id" *ngFor="let categoria of categorias"> {{categoria.categoria}} </option>
         </select>
         <label for="floatingSelect">Categoria del Producto</label>
+        <div
+        *ngIf="
+        productoForm.get('categoria_id')?.invalid && productoForm.get('categoria_id')?.touched
+        "
+      >
+        <span
+          *ngIf="productoForm.get('categoria_id')?.hasError('required')"
+          style="color: #f39c12"
+        >
+          Categoria Requerido.</span
+        >
       </div>
+    </div>
       <!-- Producto -->
       <div class="form-floating mt-1">
-        <input type="text" class="form-control bg-light" id="floatingInput" placeholder="Ingrese el nombre del producto">
+        <input type="text" formControlName="producto" class="form-control bg-light" id="floatingInput" placeholder="Ingrese el nombre del producto">
         <label for="floatingInput">Nombre Producto</label>
+        <div
+        *ngIf="
+        productoForm.get('producto')?.invalid && productoForm.get('producto')?.touched
+        "
+      >
+        <span
+          *ngIf="productoForm.get('producto')?.hasError('required')"
+          style="color: #f39c12"
+        >
+          Nombre Requerido.</span
+        >
+      </div>
       </div>
       <!-- DescripcionProducto -->
       <div class="form-floating mt-1">
-        <textarea class="form-control bg-light " placeholder="Descripcion del producto" id="floatingTextarea"></textarea>
+        <textarea class="form-control bg-light " formControlName="descripcion" placeholder="Descripcion del producto" id="floatingTextarea"></textarea>
         <label for="floatingTextarea">Descripcion del producto</label>
+        <div
+        *ngIf="
+        productoForm.get('descripcion')?.invalid && productoForm.get('descripcion')?.touched
+        "
+      >
+        <span
+          *ngIf="productoForm.get('descripcion')?.hasError('required')"
+          style="color: #f39c12"
+        >
+          Descripcion Requerido.</span
+        >
+      </div>
       </div>
       <!-- Precio -->
       <div class="form-floating mt-1">
-        <input type="number" step="0.01" class="form-control bg-light" id="floatingInput" placeholder="Precio">
+        <input formControlName="precio"  type="number" step="0.01" class="form-control bg-light" id="floatingInput" placeholder="Precio">
         <label for="floatingInput">Precio</label>
+
+        <div
+        *ngIf="
+        productoForm.get('precio')?.invalid && productoForm.get('precio')?.touched
+        "
+      >
+        <span
+          *ngIf="productoForm.get('precio')?.hasError('required')"
+          style="color: #f39c12"
+        >
+          Precio Requerido.</span
+        >
+      </div>
+
       </div>
       <!-- Stock -->
       <div class="form-floating mt-1">
-        <input type="number" class="form-control bg-light" id="floatingInput" placeholder="Stock">
+        <input formControlName="stock" type="number" class="form-control bg-light" id="floatingInput" placeholder="Stock">
         <label for="floatingInput">Stock</label>
+        <div
+        *ngIf="
+        productoForm.get('stock')?.invalid && productoForm.get('stock')?.touched
+        "
+      >
+        <span
+          *ngIf="productoForm.get('stock')?.hasError('required')"
+          style="color: #f39c12"
+        >
+          Stock Requerido.</span
+        >
+      </div>
       </div>
       <div class="input-group mt-1">
         <!-- <input type="text" class="form-control bg-light" placeholder="Imagen" /> -->
         <!-- <label for="formFile" class="form-label"
           >Default file input example</label
         > -->
-        <input class="form-control" type="file" id="formFile" />
+        <input class="form-control" (change)="onFileSelect($event)" type="file" id="formFile" />
+
+        <span
+          *ngIf="!file"
+          style="color: #f39c12"
+        >
+          Imagen Requerido.</span
+        >
       </div>
-      <div class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm">
+      <button [disabled]="productoForm.invalid||!file" type="submit" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm">
         Subir Producto
-      </div>
+      </button>
+
     </form>
   </div>
 </body>

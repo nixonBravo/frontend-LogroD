@@ -12,29 +12,32 @@ import { CategoriaService } from '../../services/categorias.service';
 })
 export class CrearProductoComponent implements OnInit{
 
-  /* file!: any; */
+   file!: any;
   productoForm!: FormGroup;
-
-  /* constructor(
+categorias!:any
+   constructor(
     private fb: FormBuilder,
     private productService: ProductosService,
     private categoryService: CategoriaService,
     private route: Router,
     private notificacion: ToastrService
-  ){ } */
+  ){
+    this.categoryService.categorias().subscribe((data:any)=>{
+      this.categorias=data.Categorias;
+    })
+  }
 
   ngOnInit(): void {
-    /* this.productoForm = this.fb.group({
+     this.productoForm = this.fb.group({
       categoria_id: ['', [Validators.required]],
       producto: ['', [Validators.required]],
       descripcion: ['', [Validators.required]],
       precio: ['', [Validators.required]],
       stock: ['', [Validators.required]],
-      imagen: ['', [Validators.required]],
-    }); */
+    });
   }
 
-  /* onFileSelect(event:any){
+   onFileSelect(event:any){
     this.file = event.target.files[0];
   }
 
@@ -49,10 +52,10 @@ export class CrearProductoComponent implements OnInit{
       body.append('imagen',this.file);
       this.productService.createProduct(body).subscribe((data:any)=> {
         console.log(data);
-
+        this.notificacion.success('Producto creado correctamente!','Proceso exitoso!');
         this.route.navigate(['/home']);
       }, (e)=>{console.log('e->', e)})
     }
-  } */
+  }
 
 }

@@ -17,7 +17,7 @@
     </div>
     <div class="col-md-3" *ngIf="categorias">
       <select [(ngModel)]="categoriaFilter"  class="form-select" aria-label="Default select example">
-        <option value="">Categorias</option>
+        <option value="0">Categorias</option>
         <option [value]="categoria.id" *ngFor="let categoria of categorias"> {{categoria.categoria}} </option>
       </select>
     </div>

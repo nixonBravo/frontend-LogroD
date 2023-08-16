@@ -63,7 +63,9 @@ export class AuthInterceptorInterceptor implements HttpInterceptor {
           console.log(error.error);
           if(error.error.messages){
             Object.entries(error.error?.messages).forEach(([key, value]:any) => {
-            this.notificacion.error(value, 'Proceso Erroneo');
+              value.forEach((data:any)=>{
+                this.notificacion.error(data, 'Proceso Erroneo');
+              })
 
             });
           }else{

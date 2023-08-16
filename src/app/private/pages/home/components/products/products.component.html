@@ -1,6 +1,6 @@
 <ng-container *ngIf="producto" >
   <div class="card text-center" style="width: 18rem;" >
-    <img class="card-img-top" style="width: 180px" src="https://www.fybeca.com/dw/image/v2/BDPM_PRD/on/demandware.static/-/Sites-masterCatalog_FybecaEcuador/default/dw28c82d20/images/large/100177142-GASEOSA-COCA-COLA-355-ML-LATA.jpg?sw=1000&sh=1000" alt="Card image cap">
+    <img class="card-img-top" style="width: 180px" [src]="producto.url">
     <div class="card-body">
       <h5 class="card-title">Producto: {{ producto.producto  |titlecase}}</h5>
       <p class="card-text">Descripcion {{ producto.descripcion |titlecase }} </p>
