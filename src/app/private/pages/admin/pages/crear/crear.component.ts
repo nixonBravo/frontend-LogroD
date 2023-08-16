@@ -53,7 +53,7 @@ categorias!:any
      this.productService.createProduct(body).subscribe((data:any)=> {
        console.log(data);
        this.notificacion.success('Producto creado correctamente!','Proceso exitoso!');
-       this.route.navigate(['/home']);
+       this.route.navigate(['/admin/ver']);
      }, (e)=>{console.log('e->', e)})
    }
  }

@@ -1,0 +1,49 @@
+<!--Main Navigation-->
+<header>
+  <!-- Sidebar -->
+  <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+    <div class="position-sticky">
+      <div class="list-group list-group-flush mx-3 mt-4">
+        <a
+          [routerLink]="['/admin/ver']"
+           routerLinkActive="active"
+          class="list-group-item list-group-item-action py-2 ripple"
+          aria-current="true"
+        >
+          <i class="fas fa-tachometer-alt fa-fw me-3"></i
+          ><span>Administrar productos</span>
+        </a>
+        <a
+          [routerLink]="['/admin/crear']"
+          routerLinkActive="active"
+          class="list-group-item list-group-item-action py-2 ripple"
+        >
+          <i class="fas fa-chart-area fa-fw me-3"></i
+          ><span>Crear Productos</span>
+        </a>
+
+        <a
+          [routerLink]="['/user']"
+          routerLinkActive="active"
+          class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-users fa-fw me-3"></i><span>Profile</span></a
+        >
+      </div>
+    </div>
+  </nav>
+  <!-- Sidebar -->
+
+  <!-- Navbar -->
+
+  <!-- Navbar -->
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+ <main style="margin-top: 58px;">
+  <div class="container pt-4">
+    <router-outlet></router-outlet>
+
+  </div>
+</main>
+<!--Main layout-->

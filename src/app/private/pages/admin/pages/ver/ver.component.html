@@ -1,25 +1,47 @@
+<div class="row mt-5 w-50 mx-auto">
+  <div class="col-md-6">
+    <form [formGroup]="searchForm"  class="input-group w-auto my-auto d-sm-flex" >
+      <input
+        formControlName="search"
+        type="text"
+        class="form-control rounded"
+        placeholder="Search"
+        style="min-width: 125px"
+      />
+      <span class="input-group-text border-0 d-none d-lg-flex"
+        ><i class="fas fa-search"></i
+      ></span>
+    </form>
+  </div>
+  <div class="col-md-4" *ngIf="categorias">
+    <select [(ngModel)]="categoriaFilter"  class="form-select" aria-label="Default select example">
+      <option value="0">Categorias</option>
+      <option [value]="categoria.id" *ngFor="let categoria of categorias"> {{categoria.categoria}} </option>
+    </select>
+  </div>
+</div>
 <table class="table table-hover mt-5 text-center">
   <thead>
     <tr>
-      <th scope="col">id</th>
-      <th scope="col">Producto</th>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
       <th scope="col">Detalles</th>
       <th scope="col">Precio</th>
       <th scope="col">Stock</th>
-      <th scope="col">Imagen ? (nose si la puedan poner)</th>
+      <th scope="col">Imagen </th>
       <th scope="col">Actions</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Dell</td>
-      <td>cbiusdcisd</td>
-      <td>499.99</td>
-      <td>10</td>
-      <td> <img style="width: 40px; height: 40px;" src="https://www.fybeca.com/dw/image/v2/BDPM_PRD/on/demandware.static/-/Sites-masterCatalog_FybecaEcuador/default/dw28c82d20/images/large/100177142-GASEOSA-COCA-COLA-355-ML-LATA.jpg?sw=1000&sh=1000" alt=""> </td>
+  <tbody *ngIf="productos">
+     <tr *ngFor="let producto of filteredItems">
+      <th scope="row"> {{producto.id}} </th>
+      <td> {{producto.producto|titlecase}} </td>
+      <td> {{producto.descripcion|titlecase}} </td>
+      <td> {{producto.precio|currency}} </td>
+      <td>{{producto.stock}}</td>
+      <td> <img style="width: 40px; height: 40px;" [src]="producto.url"> </td>
       <td>
-        <button type="button"
+        <button type="button" [routerLink]="['/admin/edit/'+producto.id]" routerLinkActive="router-link-active"
             class="btn btn-outline-info" style="border: none">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                 fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -30,7 +52,7 @@
             </svg>
         </button>
 
-        <button type="button"
+        <button type="button" (click)="delete(producto.id)"
             class="btn btn-outline-danger" style="border: none">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                 fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">

@@ -95,22 +95,9 @@
         >
       </div>
       </div>
-      <div class="input-group mt-1">
-        <!-- <input type="text" class="form-control bg-light" placeholder="Imagen" /> -->
-        <!-- <label for="formFile" class="form-label"
-          >Default file input example</label
-        > -->
-        <input class="form-control" (change)="onFileSelect($event)" type="file" id="formFile" />
-
-        <span
-          *ngIf="!file"
-          style="color: #f39c12"
-        >
-          Imagen Requerido.</span
-        >
-      </div>
-      <button [disabled]="productoForm.invalid||!file" type="submit" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm">
-        Subir Producto
+      <img style="width: 40px; height: 40px;" [src]="url">
+      <button [disabled]="productoForm.invalid" type="submit" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm">
+        Editar Producto
       </button>
 
     </form>

@@ -4,11 +4,12 @@ import { AdminComponent } from './admin.component';
 import { VerComponent } from './pages/ver/ver.component';
 import { CrearComponent } from './pages/crear/crear.component';
 import { EditComponent } from './pages/edit/edit.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AdminComponent,
+    component: NavbarComponent,
     children: [{
       path: '',
       redirectTo:'ver',
