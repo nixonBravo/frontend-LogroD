@@ -14,11 +14,11 @@ export class CarritosService {
   eliminarProducto(id:any){
     return this.http.delete(`${this.api}eliminarProducto/${id}`);
   }
-  decrementarProducto(body:any){
-    return this.http.post(`${this.api}decrementarProducto`,body);
+  decrementarProducto(id:any){
+    return this.http.post(`${this.api}decrementarProducto/${id}`,{});
   }
-  incrementarProducto(body:any){
-    return this.http.post(`${this.api}incrementarProducto`,body);
+  incrementarProducto(id:any){
+    return this.http.post(`${this.api}incrementarProducto/${id}`,{});
   }
   addProducto(body:any){
     return this.http.post(`${this.api}addProducto`,body);

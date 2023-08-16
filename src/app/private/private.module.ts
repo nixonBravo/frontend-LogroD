@@ -12,11 +12,12 @@ import { CoreModule } from '../core/core.module';
 import { UserComponent } from './pages/user/user.component';
 import { CrearProductoComponent } from './pages/crear-producto/crear-producto.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CardCarritoComponent } from './pages/carrito/components/card-carrito/card-carrito.component';
 
 
 
 @NgModule({
-  declarations: [PrivateComponent, HomeComponent, CarritoComponent, DescripcionProductoComponent, AdminComponent, AllProductComponent, ProductsComponent, UserComponent, CrearProductoComponent],
+  declarations: [PrivateComponent, HomeComponent, CarritoComponent, DescripcionProductoComponent, AdminComponent, AllProductComponent, ProductsComponent, UserComponent, CrearProductoComponent, CardCarritoComponent],
   imports: [
     PrivateRoutingModule,
     CommonModule,

@@ -9,14 +9,20 @@ import { CarritosService } from '../../services/carritos.service';
   styleUrls: ['./carrito.component.css']
 })
 export class CarritoComponent {
-  constructor(private pedidoService:PedidoService,private toastService:ToastrService,private carritoService:CarritosService){
-    this.pedidoService.getPedidos().subscribe((data)=>{
-      console.log(data);
-    })
+  productos!:any
+  constructor(private carritoService:CarritosService,private toastService:ToastrService){
+    this.getProductos();
   }
   vaciar(){
     this.carritoService.vaciar().subscribe((data)=>{
       this.toastService.success('Carrito Vaciado!','Proceso Exitoso');
+      this.getProductos()
+    })
+  }
+  getProductos(){
+    this.carritoService.carrito().subscribe((data:any)=>{
+      console.log(data);
+      this.productos=data;
     })
   }
 }
