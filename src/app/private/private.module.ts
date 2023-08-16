@@ -11,7 +11,7 @@ import { ProductsComponent } from './pages/home/components/products/products.com
 import { CoreModule } from '../core/core.module';
 import { UserComponent } from './pages/user/user.component';
 import { CrearProductoComponent } from './pages/crear-producto/crear-producto.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     PrivateRoutingModule,
     CommonModule,
     CoreModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,FormsModule
   ]
 })
 export class PrivateModule { }

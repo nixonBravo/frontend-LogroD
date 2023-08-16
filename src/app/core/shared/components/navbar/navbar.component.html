@@ -10,7 +10,7 @@
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
-     
+
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -24,7 +24,7 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-           
+
             <span class="navbar-toggler-icon"></span>
           </a>
           <div
@@ -32,7 +32,7 @@
             aria-labelledby="navbarDropdownMenuLink"
             *ngIf="navbarOpen"
           >
-           
+
             <a class="dropdown-item" href="#">Categoría 1</a>
             <a class="dropdown-item" href="#">Categoría 2</a>
             <a class="dropdown-item" href="#">Categoría 3</a>
@@ -53,15 +53,15 @@
       <div class="navbar-icons">
         <a class="navbar-icon" routerLink="/user">
           <i class="fas fa-user" routerLink="/user"></i>
-         
+
         </a>
         <a class="navbar-icon" routerLink="/crear-producto">
           <i class="fa-solid fa-plus" routerLink="/crear-producto"></i>
-         
+
         </a>
         <a class="navbar-icon" routerLink="/carrito">
           <i class="fas fa-shopping-cart" routerLink="/carrito"></i>
-          
+
         </a>
       </div>
     </div>
@@ -85,18 +85,7 @@
       </a>
 
       <!-- Search form -->
-      <form class="input-group w-auto my-auto  d-sm-flex">
-        <input
-          autocomplete="off"
-          type="search"
-          class="form-control rounded"
-          placeholder="Search"
-          style="min-width: 125px;"
-        />
-        <span class="input-group-text border-0 d-none d-lg-flex"
-          ><i class="fas fa-search"></i
-        ></span>
-      </form>
+
     </div>
     <!-- Left elements -->
 
@@ -108,7 +97,7 @@
         </a>
       </li>
 
-     
+
 
 
       <li class="nav-item me-3 me-lg-1">
@@ -140,7 +129,7 @@
           <span><i class="fas fa-plus-circle fa-lg" [routerLink]="['/crear-producto']"></i></span>
         </a>
       </li>
-      
+
     </ul>
     <!-- Right elements -->
   </div>
