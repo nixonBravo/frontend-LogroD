@@ -13,12 +13,13 @@ import { AdminRoutingModule } from './admin-routing.module';
   declarations: [
     VerComponent,
     CrearComponent,
-    EditComponent
+    EditComponent,
+
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule,RouterModule,AdminRoutingModule
+    FormsModule,RouterModule,AdminRoutingModule,
   ]
 })
 export class AdminModule { }
