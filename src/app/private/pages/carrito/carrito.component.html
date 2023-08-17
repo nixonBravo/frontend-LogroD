@@ -1,76 +1,99 @@
 <div class="container mt-5">
+  <button class="btn btn-outline-danger mb-3" (click)="vaciar()">
+    Vaciar carrito
+  </button>
+  <ng-container *ngIf="productos">
+    <div class="d-flex flex-row">
+      <div class="card">
+        <div class="card-header">
+          <h2>Total: {{ productos.Total | currency }}</h2>
+        </div>
+        <div class="card-body">
+          <app-card-carrito
+            [producto]="producto"
+            *ngFor="let producto of productos.Productos"
+          />
+        </div>
+      </div>
+      <div class="w-50 pl-2 mx-auto" *ngIf="productos?.Productos?.length > 0">
+        <form
+          [formGroup]="productoForm"
+          (submit)="crearPedido(productoForm.value)"
+        >
+          <div class="form-floating">
+            <input
+              formControlName="celular"
+              type="text"
+              class="form-control bg-light"
+              id="floatingInput"
+              placeholder="Celular"
+            />
+            <label for="floatingInput">Celular</label>
+            <div
+              *ngIf="
+                productoForm.get('celular')?.invalid &&
+                productoForm.get('celular')?.touched
+              "
+            >
+              <span
+                *ngIf="productoForm.get('celular')?.hasError('required')"
+                style="color: #f39c12"
+              >
+                Celular Requerido.</span
+              >
+              <span
+                *ngIf="productoForm.get('celular')?.hasError('pattern')"
+                style="color: #f39c12"
+              >
+                Celular debe contener numeros.</span
+              >
+              <span
+                *ngIf="productoForm.get('celular')?.hasError('maxlength')"
+                style="color: #f39c12"
+              >
+                Celular maximo 10 digitos.</span
+              >
+              <span
+                *ngIf="productoForm.get('celular')?.hasError('minlength')"
+                style="color: #f39c12"
+              >
+                Celular minimo 10 digitos.</span
+              >
+            </div>
+          </div>
+          <div class="form-floating mt-1">
+            <input
+              formControlName="direccion"
+              type="text"
+              class="form-control bg-light"
+              id="floatingInput"
+              placeholder="Descripcion"
+            />
+            <label for="floatingInput">Direccion</label>
+            <div
+              *ngIf="
+                productoForm.get('direccion')?.invalid &&
+                productoForm.get('direccion')?.touched
+              "
+            >
+              <span
+                *ngIf="productoForm.get('direccion')?.hasError('required')"
+                style="color: #f39c12"
+              >
+                Direccion Requerido.</span
+              >
+            </div>
+          </div>
 
-
-<button class="btn btn-outline-danger" (click)="vaciar()"> Vaciar carrito </button>
-<ng-container *ngIf="productos">
-  <div class="card" >
-    <div class="card-header">
-      <h2> Total {{productos.Total|currency}} </h2>
+          <button
+            [disabled]="productoForm.invalid"
+            type="submit"
+            class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm"
+          >
+            Realizar pedido
+          </button>
+        </form>
+      </div>
     </div>
-    <div class="card-body">
-      <app-card-carrito [producto]="producto" *ngFor="let producto of productos.Productos" />
-    </div>
-  </div>
-  <div class="w-50 mx-auto" *ngIf="productos?.Productos?.length>0">
-    <form [formGroup]="productoForm" (submit)="crearPedido(productoForm.value)">
-      <div class="form-floating mt-1">
-        <input formControlName="celular" type="text" class="form-control bg-light" id="floatingInput" placeholder="Celular">
-        <label for="floatingInput">Celular</label>
-        <div
-        *ngIf="
-        productoForm.get('celular')?.invalid && productoForm.get('celular')?.touched
-        "
-      >
-        <span
-          *ngIf="productoForm.get('celular')?.hasError('required')"
-          style="color: #f39c12"
-        >
-          Celular Requerido.</span
-        >
-        <span
-          *ngIf="productoForm.get('celular')?.hasError('pattern')"
-          style="color: #f39c12"
-        >
-          Celular debe contener numeros.</span
-        >
-        <span
-          *ngIf="productoForm.get('celular')?.hasError('maxlength')"
-          style="color: #f39c12"
-        >
-          Celular maximo 10 digitos.</span
-        >
-        <span
-          *ngIf="productoForm.get('celular')?.hasError('minlength')"
-          style="color: #f39c12"
-        >
-          Celular minimo 10 digitos.</span
-        >
-      </div>
-      </div>
-      <div class="form-floating mt-1">
-        <input formControlName="direccion" type="text" class="form-control bg-light" id="floatingInput" placeholder="Descripcion">
-        <label for="floatingInput">Direccion</label>
-        <div
-        *ngIf="
-        productoForm.get('direccion')?.invalid && productoForm.get('direccion')?.touched
-        "
-      >
-        <span
-          *ngIf="productoForm.get('direccion')?.hasError('required')"
-          style="color: #f39c12"
-        >
-        Direccion Requerido.</span
-        >
-      </div>
-      </div>
-
-      <button [disabled]="productoForm.invalid" type="submit" class="btn btn-info text-white w-100 mt-4 fw-semibold shadow-sm">
-        Realizar pedido
-      </button>
-    </form>
-  </div>
-</ng-container>
-
-
-
+  </ng-container>
 </div>
