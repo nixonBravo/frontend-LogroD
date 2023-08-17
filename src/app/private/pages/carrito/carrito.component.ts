@@ -58,7 +58,16 @@ export class CarritoComponent {
       return;
     } else {
       console.log('crear pedido');
-      this.pedidoService.comprar(form).subscribe((data) => {
+      const body={
+        direccion:form.direccion,
+        celular:form.celular,
+        number:"4242424242424242",
+        exp_month:8,
+        exp_year:2024,
+        cvc:"314",
+        description:"Pedido de stripe"
+      }
+      this.pedidoService.comprar(body).subscribe((data) => {
         this.toastService.success(
           'Pedido creado exitosamente!',
           'Proceso Exitoso'
@@ -69,7 +78,7 @@ export class CarritoComponent {
   }
   buildForm() {
     this.productoForm = this.fb.group({
-      descripcion: ['', [Validators.required]],
+      direccion: ['', [Validators.required]],
       celular: [
         '',
         [

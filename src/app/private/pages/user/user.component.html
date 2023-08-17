@@ -69,6 +69,12 @@
                     Cerrar sesión
                   </button>
                 </div>
+                <div class="d-flex justify-content-start" *ngIf="user.rol=='Admin'"  [routerLink]="['/admin/ver']" routerLinkActive="router-link-active" >
+                  <button class="btn btn-outline-info"  [routerLink]="['/admin/ver']" routerLinkActive="router-link-active" >
+                    <i class="fa-solid fa-arrow-right" [routerLink]="['/admin/ver']" routerLinkActive="router-link-active" ></i>
+                  Parte administrativa
+                  </button>
+                </div>
               </div>
             </div>
           </div>

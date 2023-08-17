@@ -105,6 +105,12 @@
           <span><i class="fas fa-shopping-bag fa-lg" [routerLink]="['/carrito']"></i></span>
         </a>
       </li>
+      <li class="nav-item me-3 me-lg-1"  *ngIf="user?.rol==='Cliente'">
+        <a class="nav-link" [routerLink]="['/pedido']" >
+          <span> <i class="fa-solid fa-truck" [routerLink]="['/pedido']"></i></span>
+
+        </a>
+      </li>
       <li class="nav-item me-3 me-lg-1" *ngIf="user?.rol==='Admin'">
         <a class="nav-link" [routerLink]="['/admin/ver']">
           <span><i class="fa-solid fa-lock" [routerLink]="['/admin/ver']"></i>Admin</span>
@@ -129,7 +135,7 @@
           <strong class="d-none d-sm-block ms-1" [routerLink]="['/user']" > {{ user.nombre|titlecase }} </strong>
         </a>
       </li>
-      <li class="nav-item me-3 me-lg-1">
+      <li class="nav-item me-3 me-lg-1"  *ngIf="user?.rol==='Cliente'">
         <a class="nav-link" [routerLink]="['/crear-producto']" >
           <span><i class="fas fa-plus-circle fa-lg" [routerLink]="['/crear-producto']"></i></span>
         </a>

@@ -48,18 +48,18 @@
       </div>
       </div>
       <div class="form-floating mt-1">
-        <input formControlName="descripcion" type="text" class="form-control bg-light" id="floatingInput" placeholder="Descripcion">
-        <label for="floatingInput">Descripcion</label>
+        <input formControlName="direccion" type="text" class="form-control bg-light" id="floatingInput" placeholder="Descripcion">
+        <label for="floatingInput">Direccion</label>
         <div
         *ngIf="
-        productoForm.get('descripcion')?.invalid && productoForm.get('descripcion')?.touched
+        productoForm.get('direccion')?.invalid && productoForm.get('direccion')?.touched
         "
       >
         <span
-          *ngIf="productoForm.get('descripcion')?.hasError('required')"
+          *ngIf="productoForm.get('direccion')?.hasError('required')"
           style="color: #f39c12"
         >
-          Descripcion Requerido.</span
+        Direccion Requerido.</span
         >
       </div>
       </div>

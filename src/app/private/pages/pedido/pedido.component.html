@@ -1,1 +1,23 @@
-<h2>todos los pedidos que hay</h2>
+<div class="row mt-5" *ngIf="pedido">
+  <div class="col-xl-8 col-md-12 mx-auto" *ngFor="let pedido of pedido">
+    <div class="card overflow-hidden">
+      <div class="card-content">
+        <div class="card-body cleartfix">
+          <div class="media align-items-stretch">
+            <div class="align-self-center">
+              <i class="fa-solid fa-wine-bottle info font-large-2 mr-2"></i>
+              <!-- <i class="icon-pencil primary font-large-2 mr-2"></i> -->
+            </div>
+            <div class="media-body">
+              <h4>Celular : {{pedido.celular}} </h4>
+              <span>Direccion: {{pedido.direccion|titlecase}}   </span>
+            </div>
+            <div class="align-self-center">
+              <h1> {{pedido.total|currency}} </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
