@@ -11,7 +11,7 @@
       <app-card-carrito [producto]="producto" *ngFor="let producto of productos.Productos" />
     </div>
   </div>
-  <div class="w-50 mx-auto" *ngIf="productos.Total!=0">
+  <div class="w-50 mx-auto" *ngIf="productos?.Productos?.length>0">
     <form [formGroup]="productoForm" (submit)="crearPedido(productoForm.value)">
       <div class="form-floating mt-1">
         <input formControlName="celular" type="text" class="form-control bg-light" id="floatingInput" placeholder="Celular">

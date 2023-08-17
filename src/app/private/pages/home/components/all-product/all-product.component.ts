@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoriaService } from 'src/app/private/services/categorias.service';
+import { EventEmitterService } from 'src/app/private/services/eventEmitter.service';
 import { ProductosService } from 'src/app/private/services/productos.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class AllProductComponent {
   constructor(
     private productosService: ProductosService,
     private categoriaService: CategoriaService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private eventEmitterService:EventEmitterService
   ) {
     this.searchForm = this.fb.group({
       search: ['', Validators.required],
@@ -25,10 +27,12 @@ export class AllProductComponent {
     this.searchForm.get('search')?.valueChanges.subscribe((data) => {
       this.searchTerms = data;
     });
-    this.productosService.productos().subscribe((data: any) => {
-      this.productos = data.Productos.data;
-      console.log(data.Productos.data);
-    });
+    this.getProductos();
+    this.eventEmitterService.getEvent().subscribe((data)=>{
+      if(data.event==='CARGAR_PRODUCTOS'){
+        this.getProductos();
+      }
+    })
     this.categoriaService.categorias().subscribe((data: any) => {
       console.log(data.Categorias);
       this.categorias = data.Categorias;
@@ -51,5 +55,11 @@ export class AllProductComponent {
           item.categoria_id == this.categoriaFilter
       );
     }
+  }
+  getProductos(){
+    this.productosService.productos().subscribe((data: any) => {
+      this.productos = data.Productos.data;
+      console.log(data.Productos.data);
+    });
   }
 }
