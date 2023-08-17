@@ -58,8 +58,7 @@ export class AllProductComponent {
   }
   getProductos(){
     this.productosService.productos().subscribe((data: any) => {
-      this.productos = data.Productos.data;
-      console.log(data.Productos.data);
+      this.productos = data.Productos;
     });
   }
 }

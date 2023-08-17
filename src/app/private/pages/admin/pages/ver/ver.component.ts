@@ -48,7 +48,8 @@ export class VerComponent {
   getProducts() {
     this.productoService.productos().subscribe((data: any) => {
       console.log(data.Productos);
-      this.productos = data.Productos.data;
+      this.productos = data.Productos;
+
     });
   }
   get filteredItems() {
