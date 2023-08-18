@@ -2,7 +2,7 @@
   <button class="btn btn-outline-danger mb-3" (click)="vaciar()">
     Vaciar carrito
   </button>
-  <ng-container *ngIf="productos">
+  <ng-container *ngIf="productos.length>0; else noproductos">
     <div class="d-flex flex-row">
       <div class="card">
         <div class="card-header">
@@ -96,4 +96,13 @@
       </div>
     </div>
   </ng-container>
+  <ng-template #noproductos>
+    <div class="d-flex flex-row">
+      <div class="card">
+        <div class="card-header">
+          <h2>NO existen productos en el carrito</h2>
+        </div>
+      </div>
+    </div>
+  </ng-template>
 </div>
