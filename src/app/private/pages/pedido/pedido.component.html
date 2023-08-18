@@ -1,4 +1,4 @@
-<div class="row mt-5" *ngIf="pedido">
+<div class="row mt-5" *ngIf="pedido;else nopedido">
   <div class="col-xl-8 col-md-12 mx-auto" *ngFor="let pedido of pedido">
     <div class="card overflow-hidden">
       <div class="card-content">
@@ -21,3 +21,26 @@
     </div>
   </div>
 </div>
+<ng-template #nopedido>
+  <div class="row mt-5" *ngIf="!pedido">
+    <div class="col-xl-8 col-md-12 mx-auto" >
+      <div class="card overflow-hidden">
+        <div class="card-content">
+          <div class="card-body cleartfix">
+            <div class="media align-items-stretch">
+              <div class="align-self-center">
+                <i class="fa-solid fa-wine-bottle info font-large-2 mr-2"></i>
+                <!-- <i class="icon-pencil primary font-large-2 mr-2"></i> -->
+              </div>
+              <div class="media-body">
+               <span>NO hay ningun pedido aun</span>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
