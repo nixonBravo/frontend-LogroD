@@ -4,7 +4,7 @@
     <div class="card-body">
       <h5 class="card-title">Producto: {{ producto.producto  |titlecase}}</h5>
       <p class="card-text">Descripcion {{ producto.descripcion |titlecase }} </p>
-      <p class="card-text">En stock {{ producto.stock }} </p>
+      <p class="card-text">En stock <b>{{ producto.stock }}</b>  </p>
     </div>
     <div class="card-footer">
       <a class="info" [routerLink]="['/descripcionProducto/'+producto.id]">Mas informacion</a>
